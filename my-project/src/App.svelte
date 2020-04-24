@@ -1,4 +1,5 @@
 <script>
+	import Modal from './Modal.svelte'
 	// // let name = 'My First Svelte App';
 	// let beltColor = 'Black'
 	// let firstName = 'Vineet'
@@ -36,7 +37,7 @@
 	<!-- <input type="text" bind:value={beltColor}>
 	<input type="text" bind:value={firstName}>
 	<input type="text" bind:value={lastName}> -->
-
+	<Modal/>
 	{#each persons as person (person.id)}
 		<div>
 			<h4>{person.name} is {person.age} year's old</h4>
