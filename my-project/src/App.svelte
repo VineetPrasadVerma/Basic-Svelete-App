@@ -1,16 +1,33 @@
 <script>
-	let name = 'My First Svelte App';
-	let beltcolor = 'Black Belt'
+	// let name = 'My First Svelte App';
+	let beltColor = 'Black'
+	let firstName = 'Vineet'
+	let lastName = 'Verma'
 
 	const handleClick = () =>{
-		beltcolor = 'Orange Belt'
+		beltColor = 'Orange'
 	}
-</script>
+
+	const handleInput = (e) => {
+		beltColor = e.target.value
+	}
+
+	$:fullName =  `${firstName} ${lastName}` // reactivity
+
+	$: {
+		console.log(beltColor)
+		console.log(firstName)
+	}
+
+	</script>
 
 <main>
-	<h1>{name}</h1>
-	<p>{beltcolor}</p>
-	<buttton on:click={handleClick}>Change Belt Color</buttton>
+	<p>{fullName} has {beltColor} Belt</p>
+	<!-- <buttton on:click={handleClick}>Change Belt Color</buttton> -->
+	<!-- <input type="text" on:input={handleInput} value={beltcolor}> -->
+	<input type="text" bind:value={beltColor}>
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
 </main>
 
 <style>
