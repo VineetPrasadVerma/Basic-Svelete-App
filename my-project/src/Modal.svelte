@@ -1,13 +1,12 @@
 <script>
-    let showModal = true
+    export let showModal = true
     export let isPromo = false
-    export let message = 'Defalt Value'
 </script>
 
 {#if showModal}
-    <div class:backdrop={showModal} class:promo={isPromo}>
+    <div class='backdrop' class:promo={isPromo} on:click|self>
         <div class="modal">
-            <p>{message}</p>
+            <slot></slot>
         </div>
     </div>
 {/if}
@@ -26,7 +25,7 @@
         background: white;
         text-align: center;
         max-width: 400px;
-        margin: 5% auto;
+        margin: 10% auto;
     }
 
     .promo .modal{
