@@ -34,6 +34,12 @@
 	const handleClick = (id) => {
 		persons = persons.filter(p => p.id !== id)
 	}
+
+	const addPerson = (e) => {
+		persons = [...persons, e.detail]
+		showModal = false
+	}
+
 </script>
 
 <main>
@@ -44,7 +50,7 @@
 	<input type="text" bind:value={firstName}>
 	<input type="text" bind:value={lastName}> -->
 	<Modal isPromo={true} {showModal} on:click={ handleShowModal }>
-		<AddPersonForm/>	
+		<AddPersonForm on:addPerson={addPerson}/>	
 	</Modal>
 
 	<button on:click={ handleShowModal } >Open Modal</button>
