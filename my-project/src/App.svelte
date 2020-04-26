@@ -37,15 +37,17 @@
 	<!-- <input type="text" bind:value={beltColor}>
 	<input type="text" bind:value={firstName}>
 	<input type="text" bind:value={lastName}> -->
-	<Modal/>
+	<Modal message="Modal from App Component" isPromo={true}/>
+
 	{#each persons as person (person.id)}
 		<div>
 			<h4>{person.name} is {person.age} year's old</h4>
 			<button on:click={(e) => handleClick(person.id) }>Delete</button>
 		</div>	
-		{:else}
-			<p>Nothing to show</p>
+	{:else}
+		<p>Nothing to show</p>
 	{/each}
+	
 </main>
 
 <style>
